@@ -52,6 +52,6 @@ No installation required - it's a portable application!
 - Windows 10/11
 - Visual Studio 2022 or VS Code
 
-## 📄 Лицензия
+## 📄 License
 
-Этот проект лицензирован под **BSD 3-Clause License**.
+This project is licensed under the **BSD 3-Clause License**.
