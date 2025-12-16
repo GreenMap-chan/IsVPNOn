@@ -2,7 +2,7 @@
 
 ![Windows](https://img.shields.io/badge/Windows-10%2F11-blue)
 ![.NET](https://img.shields.io/badge/.NET-8.0-purple)
-![License](https://img.shields.io/badge/license-MIT-green)
+![License](https://img.shields.io/badge/license-BSD%203--Clause-blue)
 ![Version](https://img.shields.io/badge/version-1.0.0-orange)
 
 A lightweight Windows application that runs in the system tray and monitors your VPN connection status by checking your public IP address.
