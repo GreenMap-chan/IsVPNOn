@@ -1,0 +1,33 @@
+# Сгенерированные файлы сборки
+[Bb]in/
+[Oo]bj/
+
+# Файлы пользователя
+*.user
+*.userprefs
+*.suo
+
+# Результаты тестов
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# Файлы пакетов NuGet
+packages/
+*.nupkg
+.nuget/
+NuGet.exe
+
+# VS файлы
+.vs/
+.vscode/
+
+# Резервные копии
+*.backup
+*.bak
+
+# ОС файлы
+Thumbs.db
+.DS_Store
+
+# Файлы публикации
+publish/
