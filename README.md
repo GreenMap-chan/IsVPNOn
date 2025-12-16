@@ -51,3 +51,7 @@ No installation required - it's a portable application!
 - [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 - Windows 10/11
 - Visual Studio 2022 or VS Code
+
+## 📄 Лицензия
+
+Этот проект лицензирован под **BSD 3-Clause License**.
