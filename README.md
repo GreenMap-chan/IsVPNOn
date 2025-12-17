@@ -41,8 +41,8 @@ No installation required - it's a portable application!
 4. **Get Visual Feedback**: System tray icon changes color based on VPN status
 
 ### IP Checking Logic:
-- If current IP ≠ your normal IP → VPN is inactive (Red)
-- If current IP = your normal IP → VPN is active (Green)
+- If current IP ≠ your normal IP → VPN is active (Red)
+- If current IP = your normal IP → VPN is inactive (Green)
 - If cannot reach IP service → Connection error (Yellow)
 
 ## 🏗️ Building from Source
