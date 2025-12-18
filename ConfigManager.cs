@@ -20,4 +20,6 @@ static class ConfigManager
         };
     public static string AppDataPath = "./data/appdata.json";
     public static int timerInterval = 5000;
+    public static string RunPath = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
+    public static string AppName = "IsVPNOn";
 }

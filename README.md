@@ -11,7 +11,7 @@ A lightweight Windows application that runs in the system tray and monitors your
 
 - **🖥️ System Tray Integration** - Runs discreetly in the notification area
 - **🎯 Real-time Monitoring** - Continuously checks VPN connection status
-- **🎨 Visual Indicators** - Color-coded icons (Red = VPN active, Green = VPN inactive)
+- **🎨 Visual Indicators** - Color-coded icons (Green = VPN active, Red = VPN inactive)
 - **💾 Settings Persistence** - Automatically saves and restores your configuration
 - **📊 Multiple IP Services** - Supports various IP checking services
 - **📦 Portable** - Single executable, no installation required
@@ -29,8 +29,8 @@ Download the latest release from the [Releases page](https://github.com/GreenMap
 No installation required - it's a portable application!
 
 ### Status Indicators
-- **🟢 Green Icon** - VPN is NOT active (your real IP is visible)
-- **🔴 Red Icon** - VPN IS active (using VPN IP)
+- **🟢 Red Icon** - VPN is NOT active (your real IP is visible)
+- **🔴 Green Icon** - VPN IS active (using VPN IP)
 - **🟡 Yellow Icon** - Connection error
 
 ## 🛠️ How It Works
@@ -41,8 +41,8 @@ No installation required - it's a portable application!
 4. **Get Visual Feedback**: System tray icon changes color based on VPN status
 
 ### IP Checking Logic:
-- If current IP ≠ your normal IP → VPN is inactive (Red)
-- If current IP = your normal IP → VPN is active (Green)
+- If current IP ≠ your normal IP → VPN is active (Green)
+- If current IP = your normal IP → VPN is inactive (Red)
 - If cannot reach IP service → Connection error (Yellow)
 
 ## 🏗️ Building from Source

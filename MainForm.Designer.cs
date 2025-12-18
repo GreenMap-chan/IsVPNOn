@@ -34,12 +34,13 @@
             whiteIPtext = new TextBox();
             fillIpBut = new Button();
             panel1 = new Panel();
+            startupCB = new CheckBox();
+            label3 = new Label();
+            resultLabel = new Label();
             label2 = new Label();
             serverCB = new ComboBox();
             startBut = new Button();
             errorLabel = new Label();
-            resultLabel = new Label();
-            label3 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -77,6 +78,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(startupCB);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(resultLabel);
             panel1.Controls.Add(label2);
@@ -87,8 +89,37 @@
             panel1.Controls.Add(whiteIPtext);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(420, 115);
+            panel1.Size = new Size(420, 142);
             panel1.TabIndex = 3;
+            // 
+            // startupCB
+            // 
+            startupCB.AutoSize = true;
+            startupCB.Location = new Point(131, 83);
+            startupCB.Name = "startupCB";
+            startupCB.Size = new Size(133, 24);
+            startupCB.TabIndex = 9;
+            startupCB.Text = "Start on startup";
+            startupCB.UseVisualStyleBackColor = true;
+            startupCB.CheckedChanged += startupCB_CheckedChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(131, 114);
+            label3.Name = "label3";
+            label3.Size = new Size(40, 20);
+            label3.TabIndex = 7;
+            label3.Text = "VPN:";
+            // 
+            // resultLabel
+            // 
+            resultLabel.AutoSize = true;
+            resultLabel.Location = new Point(177, 114);
+            resultLabel.Name = "resultLabel";
+            resultLabel.Size = new Size(30, 20);
+            resultLabel.TabIndex = 6;
+            resultLabel.Text = "???";
             // 
             // label2
             // 
@@ -120,40 +151,23 @@
             // errorLabel
             // 
             errorLabel.AutoSize = true;
-            errorLabel.Location = new Point(27, 145);
+            errorLabel.Location = new Point(27, 168);
             errorLabel.Name = "errorLabel";
             errorLabel.Size = new Size(50, 20);
             errorLabel.TabIndex = 4;
             errorLabel.Text = "label3";
             // 
-            // resultLabel
-            // 
-            resultLabel.AutoSize = true;
-            resultLabel.Location = new Point(177, 85);
-            resultLabel.Name = "resultLabel";
-            resultLabel.Size = new Size(30, 20);
-            resultLabel.TabIndex = 6;
-            resultLabel.Text = "???";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(131, 85);
-            label3.Name = "label3";
-            label3.Size = new Size(40, 20);
-            label3.TabIndex = 7;
-            label3.Text = "VPN:";
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(479, 174);
+            ClientSize = new Size(479, 206);
             Controls.Add(errorLabel);
             Controls.Add(panel1);
             Name = "MainForm";
             Text = "IsVPNOn";
             FormClosing += MainForm_FormClosing;
+            Load += MainForm_Load;
             SizeChanged += MainForm_SizeChanged;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -174,5 +188,6 @@
         private Label errorLabel;
         private Label label3;
         private Label resultLabel;
+        private CheckBox startupCB;
     }
 }

@@ -1,4 +1,7 @@
+using Microsoft.Win32;
+using System.Diagnostics;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace IsVPNOn
@@ -11,6 +14,7 @@ namespace IsVPNOn
         static Icon? GreenIcon;
         static Icon? Yellow;
         static AppData? appData = AppData.LoadAppData();
+        static bool isInStartup = false;
         public MainForm()
         {
             InitializeComponent();
@@ -105,15 +109,15 @@ namespace IsVPNOn
             }
             else if (ip == whiteIPtext.Text)
             {
-                ChangeIcon("green");
-                resultLabel.BackColor = Color.LightGreen;
-                resultLabel.Text = "Enabled";
-            }
-            else
-            {
                 ChangeIcon("red");
                 resultLabel.BackColor = Color.LightCoral;
                 resultLabel.Text = "Disabled";
+            }
+            else
+            {
+                ChangeIcon("green");
+                resultLabel.BackColor = Color.LightGreen;
+                resultLabel.Text = "Enabled";
             }
         }
         async Task<string?> GetMyIP()
@@ -175,6 +179,83 @@ namespace IsVPNOn
         {
             errorLabel.Visible = false;
             errorLabel.BackColor = Color.LightCoral;
+        }
+
+        public async Task<bool> IsInStartupAsync(string appName)
+        {
+            return await Task.Run(() =>
+            {
+                try
+                {
+                    using (RegistryKey? key = Registry.CurrentUser.OpenSubKey(ConfigManager.RunPath, false))
+                    {
+                        return key?.GetValue(appName) != null;
+                    }
+                }
+                catch
+                {
+                    return false;
+                }
+            });
+        }
+
+        public async void AddToStartupCurrentUser(string appName, string appPath)
+        {
+            await Task.Run(() =>
+            {
+                try
+                {
+                    using (RegistryKey? key = Registry.CurrentUser.OpenSubKey(ConfigManager.RunPath, true))
+                    {
+                        key?.SetValue(appName, appPath);
+                    }
+                }
+                catch
+                {
+                    errorLabel.Text = "Failed to add to startup.";
+                }
+            });
+
+        }
+
+        public async void RemoveFromStartupCurrentUser(string appName)
+        {
+            await Task.Run(() =>
+            {
+                try
+                {
+                    using (RegistryKey? key = Registry.CurrentUser.OpenSubKey(ConfigManager.RunPath, true))
+                    {
+                        key?.DeleteValue(appName, false);
+                    }
+                }
+                catch
+                {
+                    errorLabel.Text = "Failed to remove from startup.";
+                }
+            });
+        }
+
+        private void startupCB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!isInStartup)
+            {
+                if (startupCB.Checked)
+                {
+                    AddToStartupCurrentUser(ConfigManager.AppName, Application.ExecutablePath);
+                }
+                else
+                {
+                    RemoveFromStartupCurrentUser(ConfigManager.AppName);
+                }
+            }
+        }
+
+        private async void MainForm_Load(object sender, EventArgs e)
+        {
+            isInStartup = true;
+            startupCB.Checked = await IsInStartupAsync(ConfigManager.AppName);
+            isInStartup = false;
         }
     }
 }
