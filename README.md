@@ -7,6 +7,9 @@
 
 A lightweight Windows application that runs in the system tray and monitors your VPN connection status by checking your public IP address.
 
+## Application interface
+<img width="384" height="195" alt="image" src="https://github.com/user-attachments/assets/759dcac3-eb93-4b52-8c89-e05439a17a66" />
+
 ## 📋 Features
 
 - **🖥️ System Tray Integration** - Runs discreetly in the notification area
